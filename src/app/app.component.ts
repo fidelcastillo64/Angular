@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { myConfig } from './configu/conf';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-prac';
+  public title: string;
+  public description: string;
+  public color: string;
+  constructor() {
+    this.title = myConfig.title;
+    this.description = myConfig.description;
+    this.color = myConfig.color;
+  }
 }
