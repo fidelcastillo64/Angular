@@ -1,26 +1,34 @@
 import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
-
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-hola',
   templateUrl: './hola.component.html',
   styleUrl: './hola.component.css'
 })
-export class HolaComponent implements OnInit, DoCheck, OnDestroy{
+export class HolaComponent implements OnInit{
   public title: string;
   public description: string;
-  constructor() {
+  public name: string | undefined;
+  public followers: string | undefined;
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
     this.title = 'Hola';
     this.description = 'Hola mundo desde Angular';
+
+    
   }
   ngOnInit() {
-    console.log('OnInit HolaComponent');
+    this._route.params.subscribe((params: Params) => {
+      this.name = params['name'];
+      this.followers = params['followers'];
+    });
   }
-  ngDoCheck() {
-    console.log('DoCheck HolaComponent');
-  }
-  ngOnDestroy() {
-    console.log('OnDestroy HolaComponent');
+
+  reload(){
+    this._router.navigate(['/shoes']);
   }
 
   public changetitle() {

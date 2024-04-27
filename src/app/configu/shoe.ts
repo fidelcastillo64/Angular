@@ -4,6 +4,7 @@ export class shoe{
         this.price = price;
         this.color = color;
         this.stock = stock;
+
     }
     
 }

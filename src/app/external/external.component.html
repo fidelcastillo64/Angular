@@ -1,0 +1,36 @@
+<h2>Create user</h2>
+<form #new_User="ngForm" (ngSubmit)="onSubmit(new_User)">
+    <p>
+        <label for="name" >Name</label>
+        <input type="text" id="name" name="hello" #name="ngModel" [(ngModel)]="new_user.name" required>
+        <span *ngIf="name.invalid && name.touched">Name is required</span>
+    </p>
+    <p>
+        <label for="job" >job</label>
+        <input type="text" id="job" name="jobs" #job="ngModel" [(ngModel)]="new_user.job" required>
+        <span *ngIf="job.invalid && job.touched">Job is required</span>
+    </p>
+        <input type="submit" value="Save user" [disabled]="new_User.invalid">
+</form>
+<div *ngIf="save_user">
+    <h2>User created successfully</h2>
+    <p>Name: {{save_user.name}}</p>
+    <p>Job: {{save_user.job}}</p>
+</div>
+
+<hr>
+
+
+{{date  | date:'fullDate' | uppercase}}
+{{ 4 | calculator: 7 }}
+<hr>
+<input type="text" [(ngModel)]="userId" placeholder="Enter User Id" (keyup.enter)="loadUsers(userId)">
+<div *ngIf="!users">
+    <img src="img/kOnzy.gif" alt="avatar">
+</div>
+<div *ngIf="users">
+    <h2>{{users.first_name}} {{users.last_name}}</h2>
+    <img [src]="users.avatar" alt="avatar">
+</div>
+
+

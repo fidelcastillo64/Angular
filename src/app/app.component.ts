@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { myConfig } from './configu/conf';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

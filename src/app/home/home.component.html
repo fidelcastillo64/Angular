@@ -1,0 +1,15 @@
+<h1>home page</h1>
+
+<div *ngIf="identifier; then Identifier else noIdentifier">
+
+</div>
+
+<ng-template #Identifier>
+    <h3> you are identified in the application</h3>
+    <button (click)="setIdentified()">delete id</button>
+</ng-template>
+
+<ng-template #noIdentifier>
+    <h3> you are not identified in the application, Press this button to identify yourself</h3>
+    <button (click)="setIdentified()">Identify</button>
+</ng-template>

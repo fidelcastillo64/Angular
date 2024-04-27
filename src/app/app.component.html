@@ -6,6 +6,18 @@
     'backgroundColor': 'yellow'
 }
 ">{{title}}</p>
+<nav>
+    <a routerLink="/home" routerLinkActive = 'active'>home</a>
+    &nbsp;
+    <a routerLink="/hola" routerLinkActive = 'active'>hola</a>
+    &nbsp;
+    <a routerLink="/shoes" routerLinkActive = 'active'>shoes</a>
+    &nbsp;
+    <a routerLink="/external" routerLinkActive = 'active'>external</a>
+    &nbsp;
+    <a routerLink="/contact" routerLinkActive = 'active'>Contact</a>
+</nav>
 
+<hr>
 
-<app-shoes></app-shoes>
+<router-outlet></router-outlet>

@@ -1,0 +1,18 @@
+<h2>Contact Us</h2>
+
+<form #formContact="ngForm" (ngSubmit)="onSubmit(formContact)">
+
+    <label for="name">Fist Name</label><br>
+    <input type="text" id="Fname" #name="ngModel" name="hello" [(ngModel)]="user.name" required pattern="[a-zA-ZÀ-ÿ\s'-]+"><br>
+    <label for="name">last name</label><br>
+    <input type="text" id="Lname" name="lastName" #lastname="ngModel" [(ngModel)]="user.lastName" required pattern="[a-zA-ZÀ-ÿ\s'-]+"><br>
+    <span *ngIf="lastname.invalid && lastname.touched">last name format is invalid <br></span>
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" required><br>
+    <span *ngIf="email.invalid && email.touched">Email format is invalid <br></span>
+    <label for="message">Message</label><br>
+    <textarea id="message" name="message" #message="ngModel" [(ngModel)]="user.message" required></textarea><br>
+    <span *ngIf="message.invalid && message.touched"> message field should not be empty <br></span>
+
+    <input type="submit" value="Submit" [disabled]="formContact.invalid">
+</form>

@@ -1,0 +1,10 @@
+.expPrice{
+    color: rgb(95, 95, 95);
+    font-size: 18px;
+}
+.redbackground{
+    background-color: rgb(255, 251, 0);
+}
+.writeText{
+    color: rgb(255, 0, 0);
+}

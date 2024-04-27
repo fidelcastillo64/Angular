@@ -1,4 +1,43 @@
 <h2>Zapatillas</h2>
+<p>add brand</p>
+<p>
+<input type="text" [(ngModel)]="TemColor" (keyup.enter)="ShowWord()" />
+<button (click)="getBrand()">print</button>
+<button (click)="addColor()">Add brand</button>
+
+<strong>{{TemColor}}</strong>
+<span>all colors</span> 
+   <ul>
+      <li *ngFor="let color of colors; let indice = index">{{ indice + ' ' + color}}</li>
+   </ul>
+   
+<span>Tall shoes</span>
 <ul>
-   <li *ngFor="let shoe of shoes">{{shoe.name}} - <strong>{{shoe.price}}</strong></li> 
+   <li *ngFor="let shoe of shoes" >
+      <span [ngStyle]="{
+         'text-decoration': shoe.stock <= 0 ? 'line-through' : 'none',
+      
+      }">
+         {{shoe.name}} - <strong  [class.expPrice] = "shoe.price >= 95"
+            [ngClass]="{
+               'redbackground': shoe.price >= 95,
+               'writeText': shoe.price < 95
+            }"
+            >$ {{shoe.price}} </strong>
+      </span>
+      
+      <span *ngIf="shoe.price < 95   "
+      [style.background]="shoe.price < 95 ? 'lightgreen' : 'none'
+      ">   ¡EN OFERTA!</span>
+
+</li> 
+</ul>
+
+<p>the brand of the shoes</p>
+<input type="text" [(ngModel)]="brandTem" />
+<ul [ngSwitch]="brandTem">
+   <li *ngSwitchCase="'nike'" style="background-color: aqua;" >Nike</li>
+   <li *ngSwitchCase="'adidas'">Adidas</li>
+   <li *ngSwitchCase="'reebok'">Reebok</li>
+   <li *ngSwitchDefault>Other brand</li>
 </ul>
